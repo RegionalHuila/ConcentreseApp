@@ -1,0 +1,33 @@
+<RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditText
+        android:id="@+id/etJugadorDos"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="264dp"
+        android:hint="Juan"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/etJugadorUno"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="168dp"
+        android:hint="Pablo"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/btnRegistroIngresar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="177dp"
+        android:text="Ingresar"/>
+
+</RelativeLayout>
