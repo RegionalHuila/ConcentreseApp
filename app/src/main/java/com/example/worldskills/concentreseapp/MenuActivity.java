@@ -34,6 +34,20 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnMenuPlay:
                Intent intentPlay = new Intent(getApplicationContext(),NivelesActivity.class);
                startActivity(intentPlay);
+               break;
+            case R.id.btnMenuInformacion:
+                Intent intentInfo = new Intent(getApplicationContext(),InformacionActivity.class);
+                startActivity(intentInfo);
+                break;
+            case R.id.btnMenuConfiguraciones:
+                Intent intentConfig = new Intent(getApplicationContext(),ConfiguracionActivity.class);
+                startActivity(intentConfig);
+                break;
+            case R.id.btnMenuPunatajes:
+                Intent intentPuntajes = new Intent(getApplicationContext(),PuntajeActivity.class);
+                startActivity(intentPuntajes);
+                break;
+
         }
 
     }
