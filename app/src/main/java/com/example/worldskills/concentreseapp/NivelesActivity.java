@@ -25,13 +25,17 @@ Button nivelFacil,nivelMedio,nivelDificil;
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnNivelesFacil:
-                Intent intentFacil = new Intent(getApplicationContext(),Juego_ST_Facil.class);
+                Intent intentFacil = new Intent(getApplicationContext(), Juego_ST_Facil.class);
                 startActivity(intentFacil);
             case R.id.btnNivelesMedio:
 
             case R.id.btnNivelesDificil:
+
+        }
+
+
         }
     }
-}
+
