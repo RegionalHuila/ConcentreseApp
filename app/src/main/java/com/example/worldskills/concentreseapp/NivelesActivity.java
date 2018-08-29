@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.worldskills.concentreseapp.NivelesSinTiempo.Juego_ST_Dificil;
 import com.example.worldskills.concentreseapp.NivelesSinTiempo.Juego_ST_Facil;
 
 public class NivelesActivity extends AppCompatActivity  {
@@ -21,7 +22,7 @@ Button nivelFacil,nivelMedio,nivelDificil;
         nivelDificil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nivelDificil = new Intent(NivelesActivity.this,Juego_ST_Dificil.class);
+                Intent nivelDificil = new Intent(NivelesActivity.this, Juego_ST_Dificil.class);
                 startActivity(nivelDificil);
 
             }
