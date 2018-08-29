@@ -1,5 +1,6 @@
 package com.example.worldskills.concentreseapp;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +35,9 @@ public class RegistroActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(etNombreUno.getText().toString().trim()) && !TextUtils.isEmpty(etNombreDos.getText().toString().trim())){
                     valores.putString("JUGADORUNO",etNombreUno.getText().toString());
                     valores.putString("JUGADORdOS",etNombreDos.getText().toString());
+                    valores.commit();
+                    Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
+                    startActivity(intent);
 
                 }else{
                     Toast.makeText(getApplicationContext(),"Ingrese un nombre",Toast.LENGTH_LONG).show();
