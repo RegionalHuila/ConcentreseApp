@@ -36,7 +36,7 @@ public class RegistroActivity extends AppCompatActivity {
                     valores.putString("JUGADORUNO",etNombreUno.getText().toString());
                     valores.putString("JUGADORdOS",etNombreDos.getText().toString());
                     valores.commit();
-                    Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),Juego_ST_Facil.class);
                     startActivity(intent);
 
                 }else{

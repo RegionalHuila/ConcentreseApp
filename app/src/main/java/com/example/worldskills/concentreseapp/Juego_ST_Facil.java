@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -59,8 +60,8 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
         //LEEMOS LOS TEXTVIEWS PARA COLOCAR LOS NOMBRES EN VARIABLES
         jugador1 = tvJugador1.getText().toString();
         jugador2 = tvJugador1.getText().toString();
-        puntajeJugador1 = Integer.parseInt(tvpuntoJugador1.getText().toString());
-        puntajeJugador2 = Integer.parseInt(tvpuntoJugador2.getText().toString());
+        puntajeJugador1 = 0;
+        puntajeJugador2 = 0;
 
         //METODO PARA SORTEAR EL PRIMER TURNO
         primerturno();
@@ -159,6 +160,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         if(imagenSeleccionada1 != null && imagenSeleccionada2 != null){
             return;
+            Toast.makeText(getApplicationContext(),"Entro" , Toast.LENGTH_SHORT).show();
         }
 
         final ImageView imgtempo1 = (ImageView)findViewById(view.getId());
@@ -174,7 +176,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
             imgTemporal1 = (ImageView)findViewById(imagenSeleccionada1.getId());
             imgTemporal2 = (ImageView)findViewById(imagenSeleccionada2.getId());
             imagenSeleccionada1.setEnabled(true);
-            final int rsc1 = (int) imgTemporal1.getId();
+            int rsc1 = (int) imgTemporal1.getId();
             int rsc2 = (int) imgTemporal2.getId();
 
             if(rsc1 == rsc2){
@@ -198,6 +200,8 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
             }else{
                 MediaPlayer mal = MediaPlayer.create(getApplicationContext(),R.raw.mal);
                 mal.start();
+                imgTemporal1.setVisibility(View.VISIBLE);
+                imgTemporal2.setVisibility(View.VISIBLE);
                 CountDownTimer voltear = new CountDownTimer(1000,1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {

@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/tvPuntosJugador1"
             android:textSize="20sp"
-            android:text="Puntos1"
+            android:text=""
             android:layout_weight="50"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"/>
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/tvPuntosJugador2"
             android:textSize="20sp"
-            android:text="Puntos2"
+            android:text=""
             android:layout_weight="50"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"/>
