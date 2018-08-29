@@ -34,7 +34,7 @@ public class RegistroActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(etNombreUno.getText().toString().trim()) && !TextUtils.isEmpty(etNombreDos.getText().toString().trim())){
                     valores.putString("JUGADORUNO",etNombreUno.getText().toString());
-                    valores.putString("JUGADORdOS",etNombreDos.getText().toString());
+                    valores.putString("JUGADORDOS",etNombreDos.getText().toString());
                     valores.commit();
                     Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
                     startActivity(intent);

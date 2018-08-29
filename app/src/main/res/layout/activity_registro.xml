@@ -3,23 +3,27 @@
 
     <EditText
         android:id="@+id/etJugadorDos"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="264dp"
-        android:hint="Juan"
-        android:textAlignment="center"/>
+        android:layout_marginTop="233dp"
+        android:hint="Jugador 2"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp" />
 
     <EditText
         android:id="@+id/etJugadorUno"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="168dp"
-        android:hint="Pablo"
-        android:textAlignment="center"/>
+        android:layout_marginTop="131dp"
+        android:hint="Jugador 1"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/btnRegistroIngresar"
