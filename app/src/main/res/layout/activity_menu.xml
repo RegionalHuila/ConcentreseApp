@@ -1,5 +1,6 @@
 <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/fondo_marca_agua">
 
     <Button
         android:id="@+id/btnMenuPlay"
@@ -8,24 +9,23 @@
         android:layout_alignParentStart="true"
         android:layout_alignTop="@+id/btnMenuPunatajes"
         android:layout_marginStart="93dp"
-        android:text="play"/>
+        android:background="@drawable/menu_play"/>
 
     <Button
         android:id="@+id/btnMenuConfiguraciones"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignStart="@+id/btnMenuPlay"
-        android:layout_alignTop="@+id/btnMenuInformacion"
-        android:text="config"/>
+        android:layout_below="@+id/btnMenuPlay"
+        android:text="config" />
 
     <Button
         android:id="@+id/btnMenuInformacion"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/btnMenuPunatajes"
-        android:layout_marginBottom="189dp"
-        android:text="info"/>
+        android:layout_below="@+id/btnMenuPlay"
+        android:background="@drawable/menu_informacion" />
 
     <Button
         android:id="@+id/btnMenuPunatajes"
@@ -35,6 +35,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="75dp"
         android:layout_marginTop="152dp"
-        android:text="puntajes"/>
+        android:background="@drawable/menu_puntajes"/>
     
 </RelativeLayout>
