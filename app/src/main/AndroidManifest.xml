@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Juego_ST_Facil"
+            android:name=".NivelesSinTiempo.Juego_ST_Facil"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".RegistroActivity" />
         <activity android:name=".MenuActivity" />

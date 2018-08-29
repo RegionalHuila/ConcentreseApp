@@ -1,12 +1,14 @@
-package com.example.worldskills.concentreseapp;
+package com.example.worldskills.concentreseapp.NivelesSinTiempo;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.media.tv.TvContract;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +17,8 @@ import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.worldskills.concentreseapp.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -59,10 +63,13 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
         cronometroTiempo = (Chronometer)findViewById(R.id.cronometroTiempo);
 
         //LEEMOS LOS TEXTVIEWS PARA COLOCAR LOS NOMBRES EN VARIABLES
+        SharedPreferences sf = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        tvJugador1.setText(sf.getString("JUGADORUNO", "NO HAY"));
+        tvJugador2.setText(sf.getString("JUGADORDOS", "NO HAY"));
         jugador1 = tvJugador1.getText().toString();
-        jugador2 = tvJugador1.getText().toString();
-        puntajeJugador1 = 0;
-        puntajeJugador2 = 0;
+        jugador2 = tvJugador2.getText().toString();
+        tvpuntoJugador1.setText("0");
+        tvpuntoJugador2.setText("0");
 
         //METODO PARA SORTEAR EL PRIMER TURNO
         primerturno();
@@ -274,6 +281,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
                 tvJugador2.setTextColor(Color.BLACK);
                 tvpuntoJugador2.setTextColor(Color.BLACK);
                 turno = true;
+                Toast.makeText(getApplicationContext(), "Sigue "+jugador2 ,Toast.LENGTH_SHORT ).show();
                 random = 1;
 
             }else{
@@ -283,6 +291,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
                 tvpuntoJugador2.setTextColor(Color.GRAY);
                 turno = true;
                 random = 0;
+                Toast.makeText(getApplicationContext(), "Sigue "+jugador1 ,Toast.LENGTH_SHORT ).show();
             }
         }else{
             if(random == 0){
@@ -292,6 +301,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
                 tvpuntoJugador2.setTextColor(Color.BLACK);
                 turno = false;
                 random = 1;
+                Toast.makeText(getApplicationContext(), "Sigue "+jugador2 ,Toast.LENGTH_SHORT ).show();
 
             }else{
                 tvJugador1.setTextColor(Color.BLACK);
@@ -300,6 +310,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
                 tvpuntoJugador2.setTextColor(Color.GRAY);
                 turno = false;
                 random = 0;
+                Toast.makeText(getApplicationContext(), "Sigue "+jugador1 ,Toast.LENGTH_SHORT ).show();
             }
         }
 
@@ -314,9 +325,9 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
             puntajeJugador1 = Integer.parseInt(tvpuntoJugador1.getText().toString());
             puntajeJugador2 = Integer.parseInt(tvpuntoJugador2.getText().toString());
             if(puntajeJugador1 > puntajeJugador2){
-                Toast.makeText(getApplicationContext(), "El ganor fue"+jugador1 ,Toast.LENGTH_SHORT ).show();
+                Toast.makeText(getApplicationContext(), "El ganador fue "+jugador1 ,Toast.LENGTH_SHORT ).show();
             }else{
-                Toast.makeText(getApplicationContext(), "El ganor fue"+jugador1 ,Toast.LENGTH_SHORT ).show();
+                Toast.makeText(getApplicationContext(), "El ganador fue "+jugador1 ,Toast.LENGTH_SHORT ).show();
             }
         }
 
@@ -328,7 +339,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
             tvpuntoJugador1.setText(""+puntajeJugador1);
         }else if(random == 1){
             puntajeJugador2 += 100;
-            tvpuntoJugador2.setText(""+puntajeJugador1);
+            tvpuntoJugador2.setText(""+puntajeJugador2);
         }
     }
 
