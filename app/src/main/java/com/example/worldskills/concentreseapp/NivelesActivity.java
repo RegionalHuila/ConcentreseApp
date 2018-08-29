@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.worldskills.concentreseapp.NivelesSinTiempo.Juego_ST_Dificil;
 import com.example.worldskills.concentreseapp.NivelesSinTiempo.Juego_ST_Facil;
 
 public class NivelesActivity extends AppCompatActivity implements View.OnClickListener {
@@ -34,6 +35,8 @@ Button nivelFacil,nivelMedio,nivelDificil;
             case R.id.btnNivelesMedio:
 
             case R.id.btnNivelesDificil:
+                Intent intentDificil = new Intent(getApplicationContext(), Juego_ST_Dificil.class);
+                startActivity(intentDificil);
 
         }
 

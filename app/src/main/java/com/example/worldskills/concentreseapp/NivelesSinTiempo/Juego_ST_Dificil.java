@@ -5,13 +5,10 @@ import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.media.tv.TvContract;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Chronometer;
 import android.widget.ImageView;
@@ -21,15 +18,14 @@ import android.widget.Toast;
 import com.example.worldskills.concentreseapp.R;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
-public class Juego_ST_Facil extends Activity implements View.OnClickListener {
+public class Juego_ST_Dificil extends Activity implements View.OnClickListener {
 
     //DECLARO LAS VARIABLES
 
     ArrayList<Integer> arregloImagenes = new ArrayList<Integer>();
-    ImageView iv00, iv01, iv10, iv11, iv20, iv21, iv30, iv31, imgTemporal1, imgTemporal2;
+    ImageView iv00, iv01, iv10, iv11, iv20, iv21, iv30, iv31, iv40, iv41,iv50,iv51, imgTemporal1, imgTemporal2;
     TextView tvJugador1, tvJugador2, tvpuntoJugador1, tvpuntoJugador2;
     Chronometer cronometroTiempo;
     Boolean turno = true;
@@ -56,6 +52,10 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
         iv21 = (ImageView)findViewById(R.id.iv21);
         iv30 = (ImageView)findViewById(R.id.iv30);
         iv31 = (ImageView)findViewById(R.id.iv31);
+        iv40 = (ImageView)findViewById(R.id.iv40);
+        iv41 = (ImageView)findViewById(R.id.iv41);
+        iv50 = (ImageView)findViewById(R.id.iv50);
+        iv51 = (ImageView)findViewById(R.id.iv51);
         tvJugador1 = (TextView)findViewById(R.id.tvJugador1);
         tvJugador2 = (TextView)findViewById(R.id.tvJugador2);
         tvpuntoJugador1 = (TextView)findViewById(R.id.tvPuntosJugador1);
@@ -88,6 +88,10 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
         iv21.setOnClickListener(this);
         iv30.setOnClickListener(this);
         iv31.setOnClickListener(this);
+        iv40.setOnClickListener(this);
+        iv41.setOnClickListener(this);
+        iv50.setOnClickListener(this);
+        iv51.setOnClickListener(this);
 
     }
 
@@ -100,6 +104,10 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
         arregloImagenes.add(R.drawable.marge);
         arregloImagenes.add(R.drawable.lisa);
         arregloImagenes.add(R.drawable.milhouse);
+        arregloImagenes.add(R.drawable.moe);
+        arregloImagenes.add(R.drawable.bart);
+        arregloImagenes.add(R.drawable.moe);
+        arregloImagenes.add(R.drawable.bart);
     }
 
     private void asignarImagenes() {
@@ -111,6 +119,10 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
         iv21.setTag(asignarImagenesAleatorias());
         iv30.setTag(asignarImagenesAleatorias());
         iv31.setTag(asignarImagenesAleatorias());
+        iv40.setTag(asignarImagenesAleatorias());
+        iv41.setTag(asignarImagenesAleatorias());
+        iv50.setTag(asignarImagenesAleatorias());
+        iv51.setTag(asignarImagenesAleatorias());
     }
 
     private Object asignarImagenesAleatorias() {
@@ -320,7 +332,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
 
     private void parejasCorrectas() {
         parejasCorrectas++;
-        if(parejasCorrectas == 4){
+        if(parejasCorrectas == 8){
             cronometroTiempo.stop();
             puntajeJugador1 = Integer.parseInt(tvpuntoJugador1.getText().toString());
             puntajeJugador2 = Integer.parseInt(tvpuntoJugador2.getText().toString());

@@ -5,13 +5,10 @@ import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.media.tv.TvContract;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Chronometer;
 import android.widget.ImageView;
@@ -21,10 +18,9 @@ import android.widget.Toast;
 import com.example.worldskills.concentreseapp.R;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
-public class Juego_ST_Facil extends Activity implements View.OnClickListener {
+public class Juego_ST_Medio extends Activity implements View.OnClickListener {
 
     //DECLARO LAS VARIABLES
 
