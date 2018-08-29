@@ -2,7 +2,10 @@ package com.example.worldskills.concentreseapp;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.SharedPreferences;
+
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -14,6 +17,9 @@ import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.worldskills.concentreseapp.BaseDatos.AyudaBaseDatos;
+import com.example.worldskills.concentreseapp.BaseDatos.TablaDatos;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -318,11 +324,24 @@ public class   Juego_ST_Facil extends Activity implements View.OnClickListener {
             cronometroTiempo.stop();
             puntajeJugador1 = Integer.parseInt(tvpuntoJugador1.getText().toString());
             puntajeJugador2 = Integer.parseInt(tvpuntoJugador2.getText().toString());
+           AyudaBaseDatos ayudaBaseDatos = new AyudaBaseDatos(getApplicationContext());
+            SQLiteDatabase db = ayudaBaseDatos.getWritableDatabase();
+
+            ContentValues values = new ContentValues();
+
+
             if(puntajeJugador1 > puntajeJugador2){
                 Toast.makeText(getApplicationContext(), "El ganador fue "+jugador1 ,Toast.LENGTH_SHORT ).show();
+                values.put(TablaDatos.LectorEntrada.COLUMNA_JUGADOR,jugador1);
+                values.put(TablaDatos.LectorEntrada.COLUMNA_PUNTAJE,puntajeJugador1);
+                long newRowId = db.insert(TablaDatos.LectorEntrada.NOMBRE_TABLA, null, values);
             }else{
                 Toast.makeText(getApplicationContext(), "El ganador fue "+jugador1 ,Toast.LENGTH_SHORT ).show();
+                values.put(TablaDatos.LectorEntrada.COLUMNA_JUGADOR,jugador2);
+                values.put(TablaDatos.LectorEntrada.COLUMNA_PUNTAJE,puntajeJugador2);
+                long newRowId = db.insert(TablaDatos.LectorEntrada.NOMBRE_TABLA, null, values);
             }
+
         }
 
     }
