@@ -23,7 +23,10 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".RegistroActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".NivelesActivity"></activity>
+        <activity android:name=".NivelesActivity" />
+        <activity android:name=".ConfiguracionActivity" />
+        <activity android:name=".InformacionActivity" />
+        <activity android:name=".PuntajeActivity"></activity>
     </application>
 
 </manifest>
