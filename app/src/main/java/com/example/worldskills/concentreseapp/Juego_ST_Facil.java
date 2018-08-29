@@ -3,7 +3,9 @@ package com.example.worldskills.concentreseapp;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.media.tv.TvContract;
+import android.os.CountDownTimer;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -172,8 +174,44 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
             imgTemporal1 = (ImageView)findViewById(imagenSeleccionada1.getId());
             imgTemporal2 = (ImageView)findViewById(imagenSeleccionada2.getId());
             imagenSeleccionada1.setEnabled(true);
-            int rsc1 = (int) imgTemporal1.getId();
+            final int rsc1 = (int) imgTemporal1.getId();
             int rsc2 = (int) imgTemporal2.getId();
+
+            if(rsc1 == rsc2){
+                MediaPlayer bien = MediaPlayer.create(getApplicationContext(),R.raw.bien);
+                bien.start();
+                CountDownTimer voltear = new CountDownTimer(1000,1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        imgTemporal1.setVisibility(View.INVISIBLE);
+                        imgTemporal2.setVisibility(View.INVISIBLE);
+                        imagenSeleccionada1 = null;
+                        imagenSeleccionada1 = null;
+
+                    }
+                }.start();
+            }else{
+                MediaPlayer mal = MediaPlayer.create(getApplicationContext(),R.raw.mal);
+                mal.start();
+                CountDownTimer voltear = new CountDownTimer(1000,1000) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        imagenSeleccionada1 = null;
+                        imagenSeleccionada1 = null;
+
+                    }
+                }.start();
+            }
         }
 
     }
