@@ -63,21 +63,31 @@ public class Juego_ST_Facil extends Activity {
     }
 
     private void primerturno() {
+        //CREO ARRAYLIST CON JUGADORES
         final ArrayList<String> jugadores = new ArrayList<>();
+
+        //AGREGO OBJETOS
         jugadores.add(jugador1);
         jugadores.add(jugador2);
 
+        //RANDOM PARA ELEGIR ALEATORIAMENTE EL PRIMER JUGADOR
         random = (int) (Math.random()*jugadores.size());
 
         if(random == 0){
+
+            //CAMBIO LOS COLORES DE LOS TEXTVIEWS
             tvJugador1.setTextColor(Color.BLACK);
             tvpuntoJugador1.setTextColor(Color.BLACK);
             tvJugador1.setTextColor(Color.GRAY);
             tvpuntoJugador2.setTextColor(Color.GRAY);
+
+            //ALERT DIALOG QUE AVISA EL TURNO
             AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
             builder.setMessage(R.string.dialog_message)
                     .setTitle(R.string.dialog_title);
             AlertDialog dialog = builder.create();
+
+            //INICIO EL CRONOMETRO
             cronometroTiempo.setBase(SystemClock.elapsedRealtime());
             cronometroTiempo.start();
         }else{
@@ -85,6 +95,10 @@ public class Juego_ST_Facil extends Activity {
             tvpuntoJugador1.setTextColor(Color.GRAY);
             tvJugador1.setTextColor(Color.BLACK);
             tvpuntoJugador2.setTextColor(Color.BLACK);
+            AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+            builder.setMessage(R.string.dialog_message)
+                    .setTitle(R.string.dialog_title);
+            AlertDialog dialog = builder.create();
             cronometroTiempo.setBase(SystemClock.elapsedRealtime());
             cronometroTiempo.start();
         }
