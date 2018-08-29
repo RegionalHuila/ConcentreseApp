@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ConcentreseApp</string>
+    <string name="dialog_message">Turno de</string>
+    <string name="dialog_title">Turno</string>
 </resources>
