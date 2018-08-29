@@ -22,7 +22,8 @@
             android:name=".Juego_ST_Facil"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".RegistroActivity" />
-        <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".NivelesActivity"></activity>
     </application>
 
 </manifest>
