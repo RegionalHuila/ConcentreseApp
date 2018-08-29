@@ -13,10 +13,14 @@ Button nivelFacil,nivelMedio,nivelDificil;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_niveles);
         nivelFacil = (Button)findViewById(R.id.btnNivelesFacil);
+        nivelMedio = (Button)findViewById(R.id.btnNivelesMedio);
+        nivelDificil = (Button)findViewById(R.id.btnNivelesDificil);
 
 
 
         nivelFacil.setOnClickListener(this);
+        nivelMedio.setOnClickListener(this);
+        nivelDificil.setOnClickListener(this);
     }
 
     @Override
@@ -25,6 +29,9 @@ Button nivelFacil,nivelMedio,nivelDificil;
             case R.id.btnNivelesFacil:
                 Intent intentFacil = new Intent(getApplicationContext(),Juego_ST_Facil.class);
                 startActivity(intentFacil);
+            case R.id.btnNivelesMedio:
+
+            case R.id.btnNivelesDificil:
         }
     }
 }

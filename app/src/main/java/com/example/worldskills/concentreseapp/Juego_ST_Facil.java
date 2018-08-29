@@ -167,7 +167,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
 
         if(imagenSeleccionada1 == null){
             imagenSeleccionada1 = view;
-            imgtempo1.setEnabled(true);
+
             imagenSeleccionada1.setVisibility(view.VISIBLE);//henry
 
         }else{
@@ -176,14 +176,14 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
             imgTemporal1 = (ImageView)findViewById(imagenSeleccionada1.getId());
             imgTemporal2 = (ImageView)findViewById(imagenSeleccionada2.getId());
             imagenSeleccionada1.setEnabled(true);
-            int rsc1 = (int) imgTemporal1.getId();
-            int rsc2 = (int) imgTemporal2.getId();
+            int rsc1 = (int) imgTemporal1.getTag();
+            int rsc2 = (int) imgTemporal2.getTag();
 
 
-            if(rsc1 == rsc2){
-                MediaPlayer bien = MediaPlayer.create(getApplicationContext(),R.raw.bien);
+            if(rsc1 == rsc2) {
+                MediaPlayer bien = MediaPlayer.create(getApplicationContext(), R.raw.bien);
                 bien.start();
-                CountDownTimer voltear = new CountDownTimer(1000,1000) {
+                CountDownTimer voltear = new CountDownTimer(1000, 1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {
 
@@ -198,7 +198,8 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
 
                     }
                 }.start();
-            }else{
+            }
+        else{
                 MediaPlayer mal = MediaPlayer.create(getApplicationContext(),R.raw.mal);
                 mal.start();
                 CountDownTimer voltear = new CountDownTimer(1000,1000) {
@@ -219,5 +220,5 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
             }
         }
 
-    }
-}
+    }}
+
