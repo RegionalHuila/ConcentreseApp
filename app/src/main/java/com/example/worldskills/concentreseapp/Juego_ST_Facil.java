@@ -9,10 +9,12 @@ import android.os.CountDownTimer;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -107,10 +109,11 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
     private Object asignarImagenesAleatorias() {
         int imagenSeleccionada = 0;
 
-        Collections.shuffle(arregloImagenes);
-        int indiceAleatorio = (int)(Math.random()*arregloImagenes.size());
-        arregloImagenes.remove(indiceAleatorio);
-        return imagenSeleccionada;
+       Collections.shuffle(arregloImagenes);
+       int indiceAleatorio = (int) (Math.random()*arregloImagenes.size());
+       imagenSeleccionada = arregloImagenes.get(indiceAleatorio);
+       arregloImagenes.remove(indiceAleatorio);
+       return imagenSeleccionada;
     }
 
     private void primerturno() {
@@ -129,7 +132,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
             //CAMBIO LOS COLORES DE LOS TEXTVIEWS
             tvJugador1.setTextColor(Color.BLACK);
             tvpuntoJugador1.setTextColor(Color.BLACK);
-            tvJugador1.setTextColor(Color.GRAY);
+            tvJugador2.setTextColor(Color.GRAY);
             tvpuntoJugador2.setTextColor(Color.GRAY);
 
             //ALERT DIALOG QUE AVISA EL TURNO
@@ -144,7 +147,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
         }else{
             tvJugador1.setTextColor(Color.GRAY);
             tvpuntoJugador1.setTextColor(Color.GRAY);
-            tvJugador1.setTextColor(Color.BLACK);
+            tvJugador2.setTextColor(Color.BLACK);
             tvpuntoJugador2.setTextColor(Color.BLACK);
             AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
             builder.setMessage(R.string.dialog_message)
@@ -157,29 +160,61 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        //VERIFICO QUE LOS VIEWS ESTEN EN NULL
         if(imagenSeleccionada1 != null && imagenSeleccionada2 != null){
             return;
         }
 
+        //CREO UN IMAGEVIEW TEMPORAL CON EL VALOR ID DEL VIEW
         final ImageView imgtempo1 = (ImageView)findViewById(view.getId());
+
+        //CREO UN RECURSO TEMPORAL PARA TOMAR EL TAG DEL VIEW
         int recursoImagenTempo1 = (int) view.getTag();
+
+        //UTILIZO EL RECURSO
         imgtempo1.setImageResource(recursoImagenTempo1);
 
+        //VALIDO CUANDO ELIJAN UNA IMAGEN
         if(imagenSeleccionada1 == null){
+
+            //IMAGENSELECCIONADA1 SE CONVIERTE EN LA IMAGEN (VIEW)
             imagenSeleccionada1 = view;
+
+            //NO DEJAMOS QUE LA VUELVAN A PRESIONAR
             imgtempo1.setEnabled(true);
         }else{
+            //IMAGENSELECCIONADA1 SE CONVIERTE EN LA IMAGEN (VIEW)
             imagenSeleccionada2 = view;
 
+            //ASIGNO A LAS IMAGENES TEMPORALES LAS IMAGENES SELECCIONADAS
             imgTemporal1 = (ImageView)findViewById(imagenSeleccionada1.getId());
             imgTemporal2 = (ImageView)findViewById(imagenSeleccionada2.getId());
-            imagenSeleccionada1.setEnabled(true);
-            int rsc1 = (int) imgTemporal1.getId();
-            int rsc2 = (int) imgTemporal2.getId();
 
+            ////NO DEJAMOS QUE LA VUELVAN A PRESIONAR
+            imagenSeleccionada1.setEnabled(true);
+
+            //LAS CONVERTIMOS EN ENTERO PARA QUE SE PUEDAN COMPARAR
+            int rsc1 = (int) imgTemporal1.getTag();
+            int rsc2 = (int) imgTemporal2.getTag();
+
+            //VALIDAMOS SI SON IGUALES
             if(rsc1 == rsc2){
-                MediaPlayer bien = MediaPlayer.create(getApplicationContext(),R.raw.bien);
+
+                //SE ESCUCHA EL SONIDO GANO
+                MediaPlayer bien = MediaPlayer.create(getApplicationContext(),R.raw.gano);
                 bien.start();
+
+                //METODO PARA AUMENTAR EL PUNTAJE
+                ponerPuntaje();
+
+                //METODO PARA SUMAR LA PAREJA CORRECTA
+                parejasCorrectas();
+
+                //MOSTRAMOS LAS IMAGENES SELECCIONADAS
+                imgTemporal1.setVisibility(View.VISIBLE);
+                imgTemporal2.setVisibility(View.VISIBLE);
+
+                //COUNTDOWNTINMER PARA QUE SE DEMORE UN SEGUNDO EN DESAPERECER
                 CountDownTimer voltear = new CountDownTimer(1000,1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {
@@ -188,16 +223,24 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
 
                     @Override
                     public void onFinish() {
+
+                        //SE COLOCAN IVISIBLES
                         imgTemporal1.setVisibility(View.INVISIBLE);
                         imgTemporal2.setVisibility(View.INVISIBLE);
+
+                        //LAS IMAGENES ESTAN VACIAS DE NUEVO
                         imagenSeleccionada1 = null;
                         imagenSeleccionada2 = null;
 
                     }
                 }.start();
+
             }else{
                 MediaPlayer mal = MediaPlayer.create(getApplicationContext(),R.raw.mal);
                 mal.start();
+                quitarPuntaje();
+                imgTemporal1.setVisibility(View.VISIBLE);
+                imgTemporal2.setVisibility(View.VISIBLE);
                 CountDownTimer voltear = new CountDownTimer(1000,1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {
@@ -206,13 +249,106 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
 
                     @Override
                     public void onFinish() {
-                        imgTemporal1.setVisibility(View.INVISIBLE);
-                        imgTemporal2.setVisibility(View.INVISIBLE);
+                        imgTemporal1.setImageResource(R.drawable.concentrese_icono);
+                        imgTemporal2.setImageResource(R.drawable.concentrese_icono);
                         imagenSeleccionada1 = null;
                         imagenSeleccionada2 = null;
 
                     }
                 }.start();
+                turno = false;
+                siguienteTurno();
+
+            }
+        }
+
+    }
+
+    private void siguienteTurno() {
+
+
+        if(turno = false){
+            if(random == 0){
+                tvJugador1.setTextColor(Color.GRAY);
+                tvpuntoJugador1.setTextColor(Color.GRAY);
+                tvJugador2.setTextColor(Color.BLACK);
+                tvpuntoJugador2.setTextColor(Color.BLACK);
+                turno = true;
+                random = 1;
+
+            }else{
+                tvJugador1.setTextColor(Color.BLACK);
+                tvpuntoJugador1.setTextColor(Color.BLACK);
+                tvJugador2.setTextColor(Color.GRAY);
+                tvpuntoJugador2.setTextColor(Color.GRAY);
+                turno = true;
+                random = 0;
+            }
+        }else{
+            if(random == 0){
+                tvJugador1.setTextColor(Color.GRAY);
+                tvpuntoJugador1.setTextColor(Color.GRAY);
+                tvJugador2.setTextColor(Color.BLACK);
+                tvpuntoJugador2.setTextColor(Color.BLACK);
+                turno = false;
+                random = 1;
+
+            }else{
+                tvJugador1.setTextColor(Color.BLACK);
+                tvpuntoJugador1.setTextColor(Color.BLACK);
+                tvJugador2.setTextColor(Color.GRAY);
+                tvpuntoJugador2.setTextColor(Color.GRAY);
+                turno = false;
+                random = 0;
+            }
+        }
+
+
+    }
+
+    private void parejasCorrectas() {
+        parejasCorrectas++;
+        if(parejasCorrectas == 4){
+            cronometroTiempo.setBase(SystemClock.elapsedRealtime());
+            cronometroTiempo.stop();
+            puntajeJugador1 = Integer.parseInt(tvpuntoJugador1.getText().toString());
+            puntajeJugador2 = Integer.parseInt(tvpuntoJugador2.getText().toString());
+            if(puntajeJugador1 > puntajeJugador2){
+                Toast.makeText(getApplicationContext(), "El ganor fue"+jugador1 ,Toast.LENGTH_SHORT ).show();
+            }else{
+                Toast.makeText(getApplicationContext(), "El ganor fue"+jugador1 ,Toast.LENGTH_SHORT ).show();
+            }
+        }
+
+    }
+
+    private void ponerPuntaje() {
+        if(random == 0){
+            puntajeJugador1 += 100;
+            tvpuntoJugador1.setText(""+puntajeJugador1);
+        }else if(random == 1){
+            puntajeJugador2 += 100;
+            tvpuntoJugador2.setText(""+puntajeJugador1);
+        }
+    }
+
+    private void quitarPuntaje() {
+        if(random == 0){
+            if(puntajeJugador1 !=  0){
+                puntajeJugador1 -= 2;
+                tvpuntoJugador1.setText(""+puntajeJugador1);
+            }else{
+                puntajeJugador1 -= 0;
+                tvpuntoJugador1.setText(""+puntajeJugador1);
+            }
+
+        }else if(random == 1){
+            if(puntajeJugador2 !=  0){
+                puntajeJugador2 -= 2;
+                tvpuntoJugador2.setText(""+puntajeJugador2);
+            }else{
+                puntajeJugador2 -= 0;
+                tvpuntoJugador2.setText(""+puntajeJugador2);
             }
         }
 
