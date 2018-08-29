@@ -168,6 +168,8 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
         if(imagenSeleccionada1 == null){
             imagenSeleccionada1 = view;
             imgtempo1.setEnabled(true);
+            imagenSeleccionada1.setVisibility(view.VISIBLE);//henry
+
         }else{
             imagenSeleccionada2 = view;
 
@@ -176,6 +178,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
             imagenSeleccionada1.setEnabled(true);
             int rsc1 = (int) imgTemporal1.getId();
             int rsc2 = (int) imgTemporal2.getId();
+
 
             if(rsc1 == rsc2){
                 MediaPlayer bien = MediaPlayer.create(getApplicationContext(),R.raw.bien);
