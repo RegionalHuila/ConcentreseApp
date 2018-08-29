@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -44,13 +43,13 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
         //INSTANCIO VARIABLES
 
         iv00 = (ImageView)findViewById(R.id.iv00);
-        iv01 = (ImageView)findViewById(R.id.iv00);
-        iv10 = (ImageView)findViewById(R.id.iv00);
-        iv11 = (ImageView)findViewById(R.id.iv00);
-        iv20 = (ImageView)findViewById(R.id.iv00);
-        iv21 = (ImageView)findViewById(R.id.iv00);
-        iv30 = (ImageView)findViewById(R.id.iv00);
-        iv31 = (ImageView)findViewById(R.id.iv00);
+        iv01 = (ImageView)findViewById(R.id.iv01);
+        iv10 = (ImageView)findViewById(R.id.iv10);
+        iv11 = (ImageView)findViewById(R.id.iv11);
+        iv20 = (ImageView)findViewById(R.id.iv20);
+        iv21 = (ImageView)findViewById(R.id.iv21);
+        iv30 = (ImageView)findViewById(R.id.iv30);
+        iv31 = (ImageView)findViewById(R.id.iv31);
         tvJugador1 = (TextView)findViewById(R.id.tvJugador1);
         tvJugador2 = (TextView)findViewById(R.id.tvJugador2);
         tvpuntoJugador1 = (TextView)findViewById(R.id.tvPuntosJugador1);
@@ -160,7 +159,6 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         if(imagenSeleccionada1 != null && imagenSeleccionada2 != null){
             return;
-            Toast.makeText(getApplicationContext(),"Entro" , Toast.LENGTH_SHORT).show();
         }
 
         final ImageView imgtempo1 = (ImageView)findViewById(view.getId());
@@ -193,15 +191,13 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
                         imgTemporal1.setVisibility(View.INVISIBLE);
                         imgTemporal2.setVisibility(View.INVISIBLE);
                         imagenSeleccionada1 = null;
-                        imagenSeleccionada1 = null;
+                        imagenSeleccionada2 = null;
 
                     }
                 }.start();
             }else{
                 MediaPlayer mal = MediaPlayer.create(getApplicationContext(),R.raw.mal);
                 mal.start();
-                imgTemporal1.setVisibility(View.VISIBLE);
-                imgTemporal2.setVisibility(View.VISIBLE);
                 CountDownTimer voltear = new CountDownTimer(1000,1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {
@@ -210,8 +206,10 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
 
                     @Override
                     public void onFinish() {
+                        imgTemporal1.setVisibility(View.INVISIBLE);
+                        imgTemporal2.setVisibility(View.INVISIBLE);
                         imagenSeleccionada1 = null;
-                        imagenSeleccionada1 = null;
+                        imagenSeleccionada2 = null;
 
                     }
                 }.start();
