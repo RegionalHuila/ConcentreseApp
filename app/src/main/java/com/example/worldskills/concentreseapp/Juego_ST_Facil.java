@@ -18,7 +18,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Juego_ST_Facil extends Activity implements View.OnClickListener {
+public class   Juego_ST_Facil extends Activity implements View.OnClickListener {
 
     //DECLARO LAS VARIABLES
 
