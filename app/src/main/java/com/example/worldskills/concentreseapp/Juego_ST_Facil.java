@@ -224,7 +224,7 @@ public class Juego_ST_Facil extends Activity implements View.OnClickListener {
                     @Override
                     public void onFinish() {
 
-                        //SE COLOCAN IVISIBLES
+                        //SE COLOCAN INVISIBLES
                         imgTemporal1.setVisibility(View.INVISIBLE);
                         imgTemporal2.setVisibility(View.INVISIBLE);
 
