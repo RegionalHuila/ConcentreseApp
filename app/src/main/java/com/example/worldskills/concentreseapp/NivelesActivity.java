@@ -22,9 +22,10 @@ Button nivelFacil,nivelMedio,nivelDificil;
         nivelDificil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nivelDificil = new Intent(NivelesActivity.this,Juego_ST_Dificil.class);
-                startActivity(nivelDificil);
 
+
+                Intent nivelFacil = new Intent(NivelesActivity.this,Juego_ST_Dificil.class);
+                startActivity(nivelFacil);
             }
         });
         nivelFacil.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +40,8 @@ Button nivelFacil,nivelMedio,nivelDificil;
         nivelMedio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent nivelMedio = new Intent(NivelesActivity.this,Juego_ST_Medio.class);
+                startActivity(nivelMedio);
 
             }
         });

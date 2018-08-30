@@ -1,17 +1,17 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Juego_ST_Dificil">
+    tools:context=".Juego_ST_Dificil">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100"
-        android:id="@+id/llPrincipal"
-        android:layout_marginTop="10dp">
+        android:id="@+id/llPrincipal">
 
         <TextView
             android:layout_width="match_parent"
@@ -40,8 +40,7 @@
         android:orientation="horizontal"
         android:weightSum="100"
         android:id="@+id/llPrincipal2"
-        android:layout_below="@+id/llPrincipal"
-        android:layout_marginTop="10dp">
+        android:layout_below="@+id/llPrincipal">
 
         <TextView
             android:layout_width="match_parent"
@@ -90,15 +89,15 @@
 
             <ImageView
                 android:id="@+id/iv00"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/concentrese_icono" />
 
             <ImageView
                 android:id="@+id/iv01"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/concentrese_icono" />
         </TableRow>
@@ -107,15 +106,15 @@
 
             <ImageView
                 android:id="@+id/iv10"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/concentrese_icono" />
 
             <ImageView
                 android:id="@+id/iv11"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/concentrese_icono" />
         </TableRow>
@@ -124,15 +123,15 @@
 
             <ImageView
                 android:id="@+id/iv20"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/concentrese_icono" />
 
             <ImageView
                 android:id="@+id/iv21"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/concentrese_icono" />
         </TableRow>
@@ -141,15 +140,15 @@
 
             <ImageView
                 android:id="@+id/iv30"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/concentrese_icono" />
 
             <ImageView
                 android:id="@+id/iv31"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/concentrese_icono" />
         </TableRow>
@@ -157,15 +156,15 @@
 
             <ImageView
                 android:id="@+id/iv40"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/concentrese_icono" />
 
             <ImageView
                 android:id="@+id/iv41"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/concentrese_icono" />
         </TableRow>
@@ -173,18 +172,51 @@
 
             <ImageView
                 android:id="@+id/iv50"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/concentrese_icono" />
 
             <ImageView
                 android:id="@+id/iv51"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:src="@drawable/concentrese_icono" />
         </TableRow>
+        <TableRow>
+
+            <ImageView
+                android:id="@+id/iv60"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/concentrese_icono" />
+
+            <ImageView
+                android:id="@+id/iv61"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/concentrese_icono" />
+        </TableRow>
+        <TableRow>
+
+            <ImageView
+                android:id="@+id/iv70"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/concentrese_icono" />
+
+            <ImageView
+                android:id="@+id/iv71"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/concentrese_icono" />
+        </TableRow>
+
     </TableLayout>
 
 </RelativeLayout>

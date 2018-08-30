@@ -21,7 +21,7 @@ import java.util.Collections;
 public class Juego_ST_Medio extends AppCompatActivity implements View.OnClickListener {
 
     ArrayList<Integer> arregloImagenes = new ArrayList<Integer>();
-    ImageView iv00, iv01, iv10, iv11, iv20, iv21, iv30, iv31, iv40, iv41, imgTemporal1, imgTemporal2;
+    ImageView iv00, iv01, iv10, iv11, iv20, iv21, iv30, iv31, iv40, iv41, iv50, iv51, imgTemporal1, imgTemporal2;
     TextView tvJugador1, tvJugador2, tvpuntoJugador1, tvpuntoJugador2;
     Chronometer cronometroTiempo;
     Boolean turno = true;
@@ -48,6 +48,8 @@ public class Juego_ST_Medio extends AppCompatActivity implements View.OnClickLis
         iv31 = (ImageView)findViewById(R.id.iv31);
         iv40 = (ImageView)findViewById(R.id.iv40);
         iv41 = (ImageView)findViewById(R.id.iv41);
+        iv50 = (ImageView)findViewById(R.id.iv50);
+        iv51 = (ImageView)findViewById(R.id.iv51);
         tvJugador1 = (TextView)findViewById(R.id.tvJugador1);
         tvJugador2 = (TextView)findViewById(R.id.tvJugador2);
         tvpuntoJugador1 = (TextView)findViewById(R.id.tvPuntosJugador1);
@@ -82,6 +84,8 @@ public class Juego_ST_Medio extends AppCompatActivity implements View.OnClickLis
         iv31.setOnClickListener(this);
         iv40.setOnClickListener(this);
         iv41.setOnClickListener(this);
+        iv50.setOnClickListener(this);
+        iv51.setOnClickListener(this);
 
     }
 
@@ -96,6 +100,8 @@ public class Juego_ST_Medio extends AppCompatActivity implements View.OnClickLis
         arregloImagenes.add(R.drawable.milhouse);
         arregloImagenes.add(R.drawable.moe);
         arregloImagenes.add(R.drawable.moe);
+        arregloImagenes.add(R.drawable.bart);
+        arregloImagenes.add(R.drawable.bart);
 
     }
 
@@ -110,6 +116,8 @@ public class Juego_ST_Medio extends AppCompatActivity implements View.OnClickLis
         iv31.setTag(asignarImagenesAleatorias());
         iv40.setTag(asignarImagenesAleatorias());
         iv41.setTag(asignarImagenesAleatorias());
+        iv50.setTag(asignarImagenesAleatorias());
+        iv51.setTag(asignarImagenesAleatorias());
     }
 
     private Object asignarImagenesAleatorias() {

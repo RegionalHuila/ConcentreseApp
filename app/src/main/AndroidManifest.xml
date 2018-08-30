@@ -24,8 +24,12 @@
         <activity android:name=".RegistroActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".NivelesActivity" />
-        <activity android:name=".Juego_ST_Dificil" />
-        <activity android:name=".Juego_ST_Medio"></activity>
+        <activity
+            android:name=".Juego_ST_Medio"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Juego_ST_Dificil"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>
